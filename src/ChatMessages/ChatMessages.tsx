@@ -28,7 +28,9 @@ const MessagesContainer = styled.div`
   display: flex;
   flex-direction: column;
   flex: 1;
+  max-height: calc(100vh - 69px);
   padding: 0 24px 16px 24px;
+  overflow-x: scroll;
 
   > div {
     margin-top: 16px;
