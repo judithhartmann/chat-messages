@@ -1,23 +1,15 @@
-import { useEffect, useState } from "react";
+import { memo } from "react";
 import styled from "styled-components";
-import chatApi, { IChatMessage } from "../chatApi";
+import { IChatMessage } from "../chatApi";
 import ChatMessage from "../ChatMessage";
 import backgroundImg from "./background.png";
 
 interface ChatMessagesProps {
+  messages: IChatMessage[];
   ownName: string;
 }
 
-function ChatMessages({ ownName }: ChatMessagesProps) {
-  const [messages, setMessages] = useState<IChatMessage[]>([]);
-  useEffect(() => {
-    async function loadMessages() {
-      const loadedMessages = await chatApi.getMessages();
-      setMessages(loadedMessages);
-    }
-    loadMessages();
-  }, []);
-
+function ChatMessages({ messages, ownName }: ChatMessagesProps) {
   return (
     <MessagesContainer>
       {messages.map((message) => (
@@ -43,4 +35,4 @@ const MessagesContainer = styled.div`
   }
 `;
 
-export default ChatMessages;
+export default memo(ChatMessages);

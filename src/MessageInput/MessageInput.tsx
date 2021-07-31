@@ -1,16 +1,15 @@
-import { FormEvent, useState } from "react";
+import { FormEvent, memo, useState } from "react";
 import styled from "styled-components";
-import chatApi from "../chatApi";
 
 interface MessageInputProps {
-  ownName: string;
+  sendMessage: (message: string) => Promise<void>;
 }
 
-function MessageInput({ ownName }: MessageInputProps) {
+function MessageInput({ sendMessage }: MessageInputProps) {
   const [message, setMessage] = useState("message");
   const onSubmit = async (event: FormEvent) => {
     event.preventDefault();
-    await chatApi.sendMessage(ownName, message);
+    await sendMessage(message);
     setMessage("");
   };
   return (
@@ -52,4 +51,4 @@ const MessageSubmitButton = styled.button`
   padding: 8px 16px;
 `;
 
-export default MessageInput;
+export default memo(MessageInput);

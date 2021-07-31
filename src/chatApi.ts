@@ -12,8 +12,12 @@ export class ChatApi {
     this.apiToken = apiToken;
   }
 
-  async getMessages(): Promise<IChatMessage[]> {
-    const response = await fetch(`${this.baseUrl}?token=${this.apiToken}`);
+  async getMessages(since?: string): Promise<IChatMessage[]> {
+    let requestUrl = `${this.baseUrl}?token=${this.apiToken}`;
+    if (since) {
+      requestUrl += `&since=${since}`;
+    }
+    const response = await fetch(requestUrl);
     return await response.json();
   }
 

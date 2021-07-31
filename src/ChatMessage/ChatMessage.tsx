@@ -1,3 +1,4 @@
+import { memo } from "react";
 import styled from "styled-components";
 import { IChatMessage } from "../chatApi";
 
@@ -52,4 +53,4 @@ const MessageTimestamp = styled.span<{ isOwnMessage: boolean }>`
   text-align: ${({ isOwnMessage }) => (isOwnMessage ? "left" : "right")};
 `;
 
-export default ChatMessage;
+export default memo(ChatMessage);
