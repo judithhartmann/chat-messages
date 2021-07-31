@@ -16,6 +16,17 @@ export class ChatApi {
     const response = await fetch(`${this.baseUrl}?token=${this.apiToken}`);
     return await response.json();
   }
+
+  async sendMessage(author: string, message: string) {
+    await fetch(this.baseUrl, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        token: this.apiToken,
+      },
+      body: JSON.stringify({ author, message }),
+    });
+  }
 }
 
 if (!process.env.REACT_APP_API_TOKEN) {

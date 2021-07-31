@@ -1,7 +1,8 @@
+import { useEffect, useState } from "react";
+import styled from "styled-components";
 import chatApi, { IChatMessage } from "../chatApi";
 import ChatMessage from "../ChatMessage";
-import styled from "styled-components";
-import { useEffect, useState } from "react";
+import backgroundImg from "./background.png";
 
 interface ChatMessagesProps {
   ownName: string;
@@ -31,11 +32,11 @@ function ChatMessages({ ownName }: ChatMessagesProps) {
 }
 
 const MessagesContainer = styled.div`
+  background-image: url(${backgroundImg});
   display: flex;
   flex-direction: column;
   flex: 1;
-  margin: 0 24px 16px 24px;
-  max-width: 640px;
+  padding: 0 24px 16px 24px;
 
   > div {
     margin-top: 16px;
