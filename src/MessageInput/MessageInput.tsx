@@ -6,7 +6,7 @@ interface MessageInputProps {
 }
 
 function MessageInput({ sendMessage }: MessageInputProps) {
-  const [message, setMessage] = useState("message");
+  const [message, setMessage] = useState("");
   const onSubmit = async (event: FormEvent) => {
     event.preventDefault();
     await sendMessage(message);
@@ -15,6 +15,7 @@ function MessageInput({ sendMessage }: MessageInputProps) {
   return (
     <MessageInputForm onSubmit={onSubmit}>
       <MessageInputField
+        autoComplete="off"
         autoFocus
         type="text"
         placeholder="Message"
