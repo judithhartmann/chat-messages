@@ -11,29 +11,34 @@ interface ChatMessagesProps {
 
 function ChatMessages({ messages, ownName }: ChatMessagesProps) {
   return (
-    <MessagesContainer>
-      {messages.map((message) => (
-        <ChatMessage
-          key={message._id}
-          message={message}
-          isOwnMessage={message.author === ownName}
-        />
-      ))}
+    <MessagesContainer role="log" aria-live="polite">
+      <ul>
+        {messages.map((message) => (
+          <ChatMessage
+            key={message._id}
+            message={message}
+            isOwnMessage={message.author === ownName}
+          />
+        ))}
+      </ul>
     </MessagesContainer>
   );
 }
 
 const MessagesContainer = styled.div`
   background-image: url(${backgroundImg});
-  display: flex;
-  flex-direction: column;
   flex: 1;
   max-height: calc(100vh - 69px);
   padding: 0 24px 16px 24px;
   overflow-x: scroll;
 
-  > div {
-    margin-top: 16px;
+  > ul {
+    display: flex;
+    flex-direction: column;
+
+    > li {
+      margin-top: 16px;
+    }
   }
 `;
 

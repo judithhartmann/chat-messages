@@ -29,7 +29,7 @@ function ChatMessage({ message, isOwnMessage }: ChatMessageProps) {
   );
 }
 
-const MessageContainer = styled.div<{ isOwnMessage: boolean }>`
+const MessageContainer = styled.li<{ isOwnMessage: boolean }>`
   align-self: ${({ isOwnMessage }) =>
     isOwnMessage ? "flex-end" : "flex-start"};
   background-color: ${({ isOwnMessage }) =>
