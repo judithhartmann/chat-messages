@@ -1,4 +1,4 @@
-export interface ChatMessage {
+export interface IChatMessage {
   message: string;
   author: string;
   timestamp: string;
@@ -12,7 +12,7 @@ export class ChatApi {
     this.apiToken = apiToken;
   }
 
-  async getMessages(): Promise<ChatMessage[]> {
+  async getMessages(): Promise<IChatMessage[]> {
     const response = await fetch(`${this.baseUrl}?token=${this.apiToken}`);
     return await response.json();
   }
