@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { IChatMessage } from "./chatApi";
+import { IChatMessage } from "../chatApi";
 
 interface ChatMessageProps {
   message: IChatMessage;
