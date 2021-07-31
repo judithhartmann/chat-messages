@@ -2,7 +2,10 @@ import styled from "styled-components";
 import ChatMessages from "./ChatMessages";
 import MessageInput from "./MessageInput";
 
-const ownName = "Maggie";
+if (!process.env.REACT_APP_USERNAME) {
+  throw new Error("USER NAME MISSING, Please add it .env file");
+}
+const ownName = process.env.REACT_APP_USERNAME;
 
 function App() {
   return (
