@@ -2,6 +2,11 @@
 
 ## Notes
 
+### Technical Choices
+
+- Typescript: I prefer Typescript over vanilla JS as it gives me a better developer experience and helps me to avoid mistakes while writing code
+- styled components: I have been working in projects with styled components for the past 3 years so I feel most comfortable with them
+
 ### Loading of messages
 
 The API documentation promised to return the messages in reverse chronological order.
