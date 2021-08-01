@@ -1,7 +1,7 @@
 export interface IChatMessage {
   message: string;
   author: string;
-  timestamp: string;
+  timestamp: number;
   _id: string;
 }
 export class ChatApi {
@@ -12,7 +12,7 @@ export class ChatApi {
     this.apiToken = apiToken;
   }
 
-  async getMessages(since?: string): Promise<IChatMessage[]> {
+  async getMessages(since?: number): Promise<IChatMessage[]> {
     let requestUrl = `${this.baseUrl}?token=${this.apiToken}`;
     if (since) {
       requestUrl += `&since=${since}`;

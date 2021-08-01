@@ -14,10 +14,7 @@ function App() {
   const [messages, setMessages] = useState<IChatMessage[]>([]);
 
   const lastMessageTimestamp = useMemo(
-    () =>
-      Math.max(
-        ...messages.map((message) => parseInt(message.timestamp))
-      ).toString(),
+    () => Math.max(...messages.map((message) => message.timestamp)),
     [messages]
   );
 
