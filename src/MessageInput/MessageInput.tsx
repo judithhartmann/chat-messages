@@ -18,12 +18,15 @@ function MessageInput({ sendMessage }: MessageInputProps) {
         autoComplete="off"
         autoFocus
         type="text"
+        aria-label="Message"
         placeholder="Message"
         name="message"
         value={message}
         onChange={(event) => setMessage(event.target.value)}
       />
-      <MessageSubmitButton type="submit">Send</MessageSubmitButton>
+      <MessageSubmitButton disabled={message.length === 0} type="submit">
+        Send
+      </MessageSubmitButton>
     </MessageInputForm>
   );
 }
