@@ -35,6 +35,7 @@ const MessagesContainer = styled.div`
   > ul {
     display: flex;
     flex-direction: column;
+    padding: 0;
 
     > li {
       margin-top: 16px;

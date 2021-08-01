@@ -44,6 +44,7 @@ const MessageInputField = styled.input`
   border-radius: 4px;
   flex: 1;
   margin-right: 8px;
+  padding: 0 8px;
 `;
 
 const MessageSubmitButton = styled.button`

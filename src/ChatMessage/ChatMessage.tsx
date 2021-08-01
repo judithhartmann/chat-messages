@@ -40,6 +40,10 @@ const MessageContainer = styled.li<{ isOwnMessage: boolean }>`
   flex-direction: column;
   padding: 16px 8px 8px 16px;
   max-width: 240px;
+
+  @media only screen and (min-width: 576px) {
+    max-width: 420px;
+  }
 `;
 const MessageAuthor = styled.span`
   color: #b9c0c6;
