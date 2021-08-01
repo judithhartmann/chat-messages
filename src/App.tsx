@@ -4,13 +4,13 @@ import chatApi, { IChatMessage } from "./chatApi";
 import ChatMessages from "./ChatMessages";
 import MessageInput from "./MessageInput";
 
-if (!process.env.REACT_APP_USERNAME) {
-  throw new Error("USER NAME MISSING, Please add it .env file");
-}
-const ownName = process.env.REACT_APP_USERNAME;
 const pollingInverval = 1000 * 5; // 5s
 
 function App() {
+  if (!process.env.REACT_APP_USERNAME) {
+    throw new Error("USER NAME MISSING, Please add it .env file");
+  }
+  const ownName = process.env.REACT_APP_USERNAME;
   const [messages, setMessages] = useState<IChatMessage[]>([]);
 
   const lastMessageTimestamp = useMemo(
@@ -48,7 +48,7 @@ function App() {
       await chatApi.sendMessage(ownName, message);
       await fetchLatestMessages();
     },
-    [fetchLatestMessages]
+    [fetchLatestMessages, ownName]
   );
 
   return (
